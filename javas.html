@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--jquery google cnd 넣은것-->
+  </head>
+  <body>
+    <!--기본적으로 자바스크립트는 정적인 html과css와 달리 사용자와
+      상호작용할 수 있도록 되어있다능-->
+<h1>javascript</h1>
+    <script>
+document.write(1+1);
+</script>
+
+
+
+<h1>html</h1>
+    1+1
+
+<h2>javascript console실습</h2>
+//console창을 이용하여 1234 1+1 6/2 등의 숫자"안녕"'안녕'"1"등의 문자가능
+//예시로 "hello".length 하면 문자열길이출력
+//변수(var)와 상수
+//alert는 경고창을 띄우는것
+//
+<h2>속성을 JS의 의미로 해석</h2>
+<input type="button" value="hi" onclick="alert('hi')">
+
+<br><input type="text" onchange="alert('changed')">
+//on'''의 event 속성은 JS로 와야한다고 정의됨
+//웹페이지속 검사의 console을 통해 즉석해서 작성가능
+
+<br><input type="button"  value="night" onclick="
+document.querySelector('body').style.backgroundColor ='black';
+document.querySelector('body').style.color='white';">
+<input type="button"  value="day" onclick="
+document.querySelector('body').style.backgroundColor ='white';
+document.querySelector('body').style.color='black';">
+
+<!--document 이문서에서 querySelector 선택부분은 style.color 글자의 색깔을
+ = 무엇으로 바꾸라 ; 라는 의미들
+javascript get element by css selector 검색 -->
+
+<br>조건문 toggle; 설정값을 다른 값으로 전환하는 것
+<br><input type="button"value="if" onclick="
+if(document.querySelector('body').dataset.mode ==='day'){
+  document.querySelector('body').style.backgroundColor ='black';
+  document.querySelector('body').style.color='white';
+  document.querySelector('body').dataset.mode ='night';
+  this.value ='day';
+}else{
+  document.querySelector('body').style.backgroundColor ='white';
+  document.querySelector('body').style.color='black';
+  document.querySelector('body').dataset.mode ='day';
+  this.value ='night';
+}">
+<br>리팩토링
+<input type="button"value="night" onclick="
+nd(this);
+">
+<ul>
+<li><a href="1.html">적용1</a></li>
+<li><a href="1.html">적용2</a></li>
+<li><a href="1.html">적용3</a></li>
+</ul>
+<h2>comparison operators & boolean</h2>
+
+<h3>=== 동등 비교연산자</h3>
+    <h4>1===1</h4>
+    <script>
+      document.write(1===1);
+    </script>
+
+    <h4>1===2</h4>
+    <script>
+      document.write(1===2);
+    </script>
+<br>//이러한 true 와 fales을 boolean의 데이터 타입임.
+
+<h4>1&lt;2</h4>
+<script>
+  document.write(1<2);
+</script>
+
+<h4>1&lt;1</h4>
+<script>
+  document.write(1<1);
+</script>
+<!--html 상 <나 >같은 특수부호는 그대로 출력불가 대신 &lt;와 &gt;이용
+' ' &nbsp , & &amp, " &quot 등으로 치환 -->
+<h2>conditional statements</h2>
+
+<script>
+  document.write("1<br>")
+  if(true){
+  document.write("2<br>")
+} else{document.write("3<br>")
+}document.write("4<br>")
+</script>
+<!--if문의 안에 true가 올 경우 항상 괄호안을 실행 false일 경우 pass-->
+
+<h2>array</h2>
+<script>
+  var arr = ["a","b"];
+  document.write(arr[0]);
+  document.write(arr[1]);
+  document.write(arr.length);
+  arr.push('c');
+</script>
+<!--javascript array surch-->
+
+<h2>loop</h2>
+<ul>
+<script>
+  document.write('<li>1</li>');
+  var i=0;
+  while(i<3){
+  document.write('<li>2</li>');
+  document.write('<li>3</li>');
+i= i+1;
+}
+  document.write('<li>4</li>');
+</script>
+</ul>
+
+<h2>array & loop</h2>
+<script>
+var arr2 = ['a','b','c','d'];
+var i= 0;
+while (i<arr2.length) {
+  document.write('<li>'+arr2[i]+'</li>');
+i= i+1;
+}
+</script>
+<!-- 안에 변수나 배열등을 삽입할 때에'+ +'기호를 이용해야함-->
+<h2>function</h2>
+<h3>parameter매개변수 & argument인자</h3>
+<script>
+  function sum(left,right){
+    document.write(left+right+'<br>');
+  }
+  sum(2,3);//여기서 2와3이 인자
+  sum(3,4);//left와 right가 매개변수가 됨
+</script>
+<h3>return</h3>
+<script>
+  function sum2(left,right){
+    return left + right;
+  }
+
+  document.write('<div style="color:red">'+sum(1,1)+'</div>');
+
+  document.write('<div style="color:red">'+sum2(1,1)+'</div>');
+  //return을 이용해 함수값을 또다른 인자로 사용 여부가 결정됨
+</script>
+<h3>object 객체</h3>
+<script>
+  var obj = {
+    'a':'1', 'b':'2'
+  };
+  //배열은 대괄호 객체는 중괄호로 이루어짐
+  document.write('a불러오기:'+obj.a+'<br>');
+  document.write('b불러오기:'+obj.b+'<br>');
+  obj.c='3';
+  document.write('c불러오기:'+obj.c+'<br>');
+  obj["space space"]='4';
+  document.write('띄어쓰기불러오기:'+obj["space space"]+'<br>');
+</script>
+<h3>iterate반복</h3>
+<script>
+  for(var key in obj){
+    document.write(key+':'+obj[key]+'<br>');
+  }//여기서 key란 배열의 인덱스와 유사,
+  //따로 순서는 없다지만 모든 항목들을 내용의 항목들을 순차적 출력
+
+</script>
+<h3>method ; 객체에 소속된 함수들, property;a와b처럼 묶인 변수들을 칭함</h3>
+<script>
+  obj.showall()=function(){
+    for(var key in this){
+document.write(key+':'+this[key]+'<br>');
+    }
+  }
+  obj.showall();//???????????왜안나옴
+</script>
+<h2>jquery 를 통한 이용법 검색 및 다운</h2>
+  </body>
+</html>
